@@ -1,5 +1,5 @@
 {
-    "name": "logic-pro-script-compiler",
+    "name": "@benjamindehli/logic-pro-script-compiler",
     "version": "1.0.0",
     "description": "Compiles JavaScript files to .pst files for Logic Pro Scripter plugin",
     "scripts": {
