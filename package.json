@@ -11,7 +11,8 @@
         "lib/"
     ],
     "scripts": {
-        "build": "node compile.js"
+        "build": "node compile.js",
+        "test": "node --test test/*.test.js"
     },
     "keywords": [
         "logic-pro",
