@@ -1,0 +1,14 @@
+{
+    "name": "logic-pro-script-compiler",
+    "version": "1.0.0",
+    "description": "Compiles JavaScript files to .pst files for Logic Pro Scripter plugin",
+    "scripts": {
+        "build": "node compile.js"
+    },
+    "dependencies": {
+        "@babel/core": "^7.27.1",
+        "@babel/plugin-transform-block-scoping": "^7.27.1",
+        "@babel/plugin-transform-optional-chaining": "^7.27.1",
+        "@babel/plugin-transform-spread": "^7.27.1"
+    }
+}
