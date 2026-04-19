@@ -1,17 +1,16 @@
 {
     "name": "@benjamindehli/logic-pro-script-compiler",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Compiles JavaScript files to .pst files for Logic Pro Scripter plugin",
-    "main": "./lib/functions.js",
+    "main": "./dist/functions.js",
     "bin": {
-        "logic-pro-script-compiler": "./compile.js"
+        "logic-pro-script-compiler": "./dist/compile.js"
     },
     "files": [
-        "compile.js",
-        "lib/"
+        "dist/"
     ],
     "scripts": {
-        "build": "node compile.js",
+        "build": "node scripts/build.js",
         "test": "node --test test/*.test.js"
     },
     "keywords": [
@@ -21,7 +20,7 @@
         "pst"
     ],
     "author": "Benjamin Dehli",
-    "license": "MIT",
+    "license": "GPL-3.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/benjamindehli/logic-pro-script-compiler.git"
@@ -36,10 +35,11 @@
     "publishConfig": {
         "access": "public"
     },
-    "dependencies": {
+    "devDependencies": {
         "@babel/core": "^7.27.1",
         "@babel/plugin-transform-block-scoping": "^7.27.1",
         "@babel/plugin-transform-optional-chaining": "^7.27.1",
-        "@babel/plugin-transform-spread": "^7.27.1"
+        "@babel/plugin-transform-spread": "^7.27.1",
+        "esbuild": "^0.28.0"
     }
 }
