@@ -14,28 +14,18 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v4
 
-            - uses: actions/setup-node@v6
+            - uses: actions/setup-node@v4
               with:
                   node-version: "24"
                   registry-url: https://npm.pkg.github.com/
                   scope: "@benjamindehli"
 
-            # 👇 Ensure Yarn v4 from packageManager is used
-            - name: Enable Corepack & activate Yarn 4
-              run: |
-                  corepack enable
-                  corepack prepare yarn@4.10.3 --activate
-                  yarn --version
+            - name: Install dependencies
+              run: npm ci
 
-            - run: yarn install --immutable
-            - run: yarn test
-            - run: yarn build
-
-            # If your package is public on npmjs.com use npmjs; for GitHub Packages keep npm.pkg.github.com
             - name: Publish to GitHub Packages
-              if: ${{ success() }}
               run: npm publish
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_GITHUB_TOKEN }}

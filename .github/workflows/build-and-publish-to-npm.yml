@@ -15,40 +15,18 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v6
+              uses: actions/checkout@v4
 
             - name: Setup Node.js
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@v4
               with:
                   node-version: "24"
                   registry-url: https://registry.npmjs.org/
 
-            # Enable Corepack and activate the Yarn version from package.json
-            - name: Enable Corepack & activate Yarn 4
-              run: |
-                  corepack enable
-                  corepack prepare yarn@4.10.3 --activate
-                  yarn --version
-
             - name: Install dependencies
-              run: yarn install --immutable
-
-            - name: Run tests
-              run: yarn test
-
-            - name: Build project
-              if: ${{ success() }}
-              run: yarn build
-
-            - name: Configure npm auth
-              run: |
-                  echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
-                  npm whoami
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
+              run: npm ci
 
             - name: Publish to npm
-              if: ${{ success() }}
               run: npm publish --provenance --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM_TOKEN }}
