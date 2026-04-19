@@ -2,8 +2,19 @@
     "name": "@benjamindehli/logic-pro-script-compiler",
     "version": "1.0.0",
     "description": "Compiles JavaScript files to .pst files for Logic Pro Scripter plugin",
+    "main": "./lib/functions.js",
+    "bin": {
+        "logic-pro-script-compiler": "./compile.js"
+    },
+    "files": [
+        "compile.js",
+        "lib/"
+    ],
     "scripts": {
         "build": "node compile.js"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "dependencies": {
         "@babel/core": "^7.27.1",
