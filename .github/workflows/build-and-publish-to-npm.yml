@@ -26,6 +26,9 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
+            - name: Run package validation
+              run: npm pkg fix --dry-run
+
             - name: Publish to npm
               run: npm publish --provenance --access public
               env:

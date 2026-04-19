@@ -13,6 +13,25 @@
     "scripts": {
         "build": "node compile.js"
     },
+    "keywords": [
+        "logic-pro",
+        "scripter",
+        "compiler",
+        "pst"
+    ],
+    "author": "Benjamin Dehli",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/benjamindehli/logic-pro-script-compiler.git"
+    },
+    "homepage": "https://github.com/benjamindehli/logic-pro-script-compiler#readme",
+    "bugs": {
+        "url": "https://github.com/benjamindehli/logic-pro-script-compiler/issues"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    },
     "publishConfig": {
         "access": "public"
     },
