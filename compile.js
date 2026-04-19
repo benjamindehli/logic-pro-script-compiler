@@ -2,7 +2,7 @@
 "use strict";
 
 // Dependencies
-const path = require("path");
+const path = require("node:path");
 
 // Helpers
 const { processDirectory } = require("./lib/functions");
