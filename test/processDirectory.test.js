@@ -68,7 +68,7 @@ test("skips dotfiles", () => {
     }
 });
 
-test("skips non-.js files", () => {
+test("skips non-.js/.mjs/.cjs files", () => {
     const src = mkTmpDir();
     const out = mkTmpDir();
     try {
@@ -121,6 +121,32 @@ test("compiles multiple .js files in the same directory", () => {
         processDirectory(src, out);
         assert.ok(fs.existsSync(path.join(out, "a.pst")));
         assert.ok(fs.existsSync(path.join(out, "b.pst")));
+    } finally {
+        cleanup(src);
+        cleanup(out);
+    }
+});
+
+test("compiles .mjs files to .pst", () => {
+    const src = mkTmpDir();
+    const out = mkTmpDir();
+    try {
+        fs.writeFileSync(path.join(src, "script.mjs"), "var x = 1;");
+        processDirectory(src, out);
+        assert.ok(fs.existsSync(path.join(out, "script.pst")));
+    } finally {
+        cleanup(src);
+        cleanup(out);
+    }
+});
+
+test("compiles .cjs files to .pst", () => {
+    const src = mkTmpDir();
+    const out = mkTmpDir();
+    try {
+        fs.writeFileSync(path.join(src, "script.cjs"), "var x = 1;");
+        processDirectory(src, out);
+        assert.ok(fs.existsSync(path.join(out, "script.pst")));
     } finally {
         cleanup(src);
         cleanup(out);
